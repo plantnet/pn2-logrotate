@@ -35,9 +35,9 @@ else if (process.env.HOME && !process.env.HOMEPATH)
 else if (process.env.HOME || process.env.HOMEPATH)
   PM2_ROOT_PATH = path.resolve(process.env.HOMEDRIVE, process.env.HOME || process.env.HOMEPATH, '.pm2');
 
-const parseBool = (str, defaultVal = false) => {
-  if (str === 'true') return true;
-  if (str === 'false') return false;
+const parseBool = (str, defaultVal = true) => {
+  if (str === 'true' || str === true) return true;
+  if (str === 'false' || str === false) return false;
   return defaultVal;
 };
 
